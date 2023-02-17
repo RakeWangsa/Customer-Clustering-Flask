@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE+edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deploying Clustering</title>
+    </head>
+    <body>
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="https://www.clipartkey.com/mpngs/m/100-1007621_transparent-background-users-icon.png" alt="Customer" style="width: 20%; height: 20%;"/>
+            </div>
+            <form action="{{ url_for('predict')}}" method="post">
+                <h3>Customer Clustering</h3>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <p>Age : </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="input" name="Age" class="form-control" placeholder="Input Age" required="required" />
+                        </div>
+                        <div>
+                            <p>Income : </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="input2" name="Income" class="form-control" placeholder="Input Income" required="required" />
+                        </div>
+                        <div>
+                            <p>Education : </p>
+                        </div>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="Education" name="Education">
+                              <option value="0">SMP</option>
+                              <option value="0.33">SMA</option>
+                              <option value="0.66">Sarjana</option>
+                            </select>
+                          </div>
+                        <div class="form-group">
+                            <button type="submit" class="btnContact" onclick="myFunction()">Prediksi</button>
+                        </div>
+                        <h3>
+                            Hasil : <br />
+                            {{ prediction_text }}
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </form>
+</div>
+<script>
+    function myFunction() {
+      var x = document.getElementById("input").value|0;
+      x=(x-18)/(76-18)
+      if (x!=-0.3103448275862069) {
+        document.getElementById("input").value = x;
+        }
+      
+      var y = document.getElementById("input2").value|0;
+      y=(y-35832)/(309364-35832)
+        if (y!=-0.13099747013146543) {
+        document.getElementById("input2").value = y;
+        }
+      
+    }
+    </script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </body>
+</html>

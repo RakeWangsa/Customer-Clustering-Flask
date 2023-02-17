@@ -1,0 +1,20 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<div class="login">
+  <h1>Customer Prediction</h1>
+
+  <!-- Main Input For Receiving Query to our ML -->
+  <form action="{{ url_for('predict')}}" method="post">
+    <input type="text" name="Age" placeholder="Age" required="required" />
+    <input type="text" name="Income" placeholder="Income" required="required" />
+    <input type="text" name="Education" placeholder="Education" required="required" />
+
+    <button type="submit" class="btnContact">
+      Prediksi
+    </button>
+  </form>
+
+  <br />
+  <br />
+  {{ prediction_text }}
+</div>
